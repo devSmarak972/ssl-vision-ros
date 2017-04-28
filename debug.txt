@@ -1,0 +1,4 @@
+frame number: 269209
+botPos[botID].x: 2008.92	botPos[botID].y: 750.4
+finalPos.x : 1564.5	finalPos.y: 671.125
+pointpos.x : 1564	Pointpos.y: 671

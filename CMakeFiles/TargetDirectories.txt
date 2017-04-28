@@ -1,0 +1,6 @@
+/home/kgpkubs/ssl/src/ssl-vision/CMakeFiles/graphicalClient.dir
+/home/kgpkubs/ssl/src/ssl-vision/CMakeFiles/vision.dir
+/home/kgpkubs/ssl/src/ssl-vision/CMakeFiles/logClient.dir
+/home/kgpkubs/ssl/src/ssl-vision/CMakeFiles/sslvision.dir
+/home/kgpkubs/ssl/src/ssl-vision/CMakeFiles/client.dir
+/home/kgpkubs/ssl/src/ssl-vision/CMakeFiles/GenerateProto.dir
