@@ -23,6 +23,7 @@
 #define CAPTURE_THREAD_H
 #include "capturedc1394v2.h"
 #include "capturefromfile.h"
+#include "capture_ros.h"
 #include "capture_generator.h"
 #include <QThread>
 #include "ringbuffer.h"
@@ -49,6 +50,7 @@ protected:
   CaptureInterface * captureDC1394;
   CaptureInterface * captureFiles;
   CaptureInterface * captureGenerator;
+  CaptureInterface * captureROS;
   AffinityManager * affinity;
   FrameBuffer * rb;
   bool _kill;
@@ -57,6 +59,7 @@ protected:
   VarList * dc1394;
   VarList * generator;
   VarList * fromfile;
+  VarList * ROS;
   VarList * control;
   VarTrigger * c_start;
   VarTrigger * c_stop;

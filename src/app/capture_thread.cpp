@@ -38,9 +38,11 @@ CaptureThread::CaptureThread(int cam_id)
   captureModule->addItem("DC 1394");
   captureModule->addItem("Read from files");
   captureModule->addItem("Generator");
+  captureModule->addItem("From ROS Topic");
   settings->addChild( (VarType*) (dc1394 = new VarList("DC1394")));
   settings->addChild( (VarType*) (fromfile = new VarList("Read from files")));
   settings->addChild( (VarType*) (generator = new VarList("Generator")));
+  settings->addChild( (VarType*) (ROS = new VarList("From ROS Topic")));
   settings->addFlags( VARTYPE_FLAG_AUTO_EXPAND_TREE );
   c_stop->addFlags( VARTYPE_FLAG_READONLY );
   c_refresh->addFlags( VARTYPE_FLAG_READONLY );
@@ -55,6 +57,7 @@ CaptureThread::CaptureThread(int cam_id)
   captureDC1394 = new CaptureDC1394v2(dc1394,camId);
   captureFiles = new CaptureFromFile(fromfile);
   captureGenerator = new CaptureGenerator(generator);
+  captureROS = new CaptureROS(ROS);
   selectCaptureMethod();
   _kill =false;
   rb=0;
@@ -78,6 +81,7 @@ CaptureThread::~CaptureThread()
 {
   delete captureDC1394;
   delete captureFiles;
+  delete captureROS;
   delete captureGenerator;
   delete counter;
 }
@@ -102,7 +106,10 @@ void CaptureThread::selectCaptureMethod() {
     new_capture = captureFiles;
   } else if(captureModule->getString() == "Generator") {
     new_capture = captureGenerator;
-  } else {
+  } else if (captureModule->getString() == "From ROS Topic") {
+    new_capture = captureROS;
+  }
+   else {
     new_capture = captureDC1394;
   }
 
