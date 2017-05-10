@@ -1,5 +1,20 @@
 project(ssl-vision)
 cmake_minimum_required(VERSION 2.6)
+
+
+
+find_package(catkin REQUIRED COMPONENTS
+  roscpp
+  rospy
+  std_msgs
+  image_transport
+  cv_bridge
+)
+include_directories(
+  ${catkin_INCLUDE_DIRS}
+)
+
+catkin_package()
 #defines
 add_definitions(-D UNIX)
 add_definitions(-D LINUX)
@@ -16,6 +31,7 @@ include_directories(${PROJECT_BINARY_DIR})
 
 include ( ${QT_USE_FILE} )
 message("${QT_LIBRARIES} >><><><><")
+message("cmake prefix path: ${CMAKE_PREFIX_PATH}")
 
 include(src/shared/CMakeLists.txt.inc)
 
@@ -140,7 +156,7 @@ message (STATUS "Custom CC Flags: ${cc_flags}")
 add_definitions(${cc_flags})
 
 ## build the common code
-add_library(sslvision ${SHARED_MOC_SRCS} ${SHARED_RC_SRCS} ${CC_PROTO} ${SHARED_SRCS})
+add_library(sslvision STATIC ${SHARED_MOC_SRCS} ${SHARED_RC_SRCS} ${CC_PROTO} ${SHARED_SRCS})
 add_dependencies(sslvision GenerateProto)
 message("<><> ${CC_PROTO}")
 set (libs ${QT_LIBRARIES} dc1394 jpeg png -I/usr/local/lib/ -lprotobuf pthread GL GLU sslvision)
@@ -148,7 +164,7 @@ set (libs ${QT_LIBRARIES} dc1394 jpeg png -I/usr/local/lib/ -lprotobuf pthread G
 ## build the main app
 set (target vision)
 add_executable(${target} ${UI_SRCS} ${MOC_SRCS} ${RC_SRCS} ${SRCS})
-target_link_libraries(${target} ${libs} -lpthread -ldc1394 -L/usr/lib/x86_64-linux-gnu/ -lQtCore -I/home/kgpkubs/local/include -L/home/kgpkubs/local/lib -lprotobuf -lpthread -pthread)
+target_link_libraries(${target} ${libs} ${catkin_LIBRARIES} -lpthread -ldc1394 -L/usr/lib/x86_64-linux-gnu/ -lQtCore -I/home/kgpkubs/local/include -L/home/kgpkubs/local/lib -lprotobuf -lpthread -pthread)
 
 ##build non graphical client
 set (client client)
@@ -176,3 +192,5 @@ add_executable(${gclient} ${GCLIENT_MOC_SRCS}
 target_link_libraries(${gclient} ${libs} -lpthread -ldc1394 -L/usr/lib/x86_64-linux-gnu/ -lQtCore -I/home/kgpkubs/local/include -L/home/kgpkubs/local/lib -lprotobuf -lpthread -pthread)
 
 
+add_executable(test_subscriber src/test_subscriber.cpp)
+target_link_libraries(test_subscriber ${catkin_LIBRARIES})

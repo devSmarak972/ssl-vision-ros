@@ -40,7 +40,7 @@ void HandleStop(int i) {
 }
 
 int main(int argc, char *argv[])
-{
+{  
   signal(SIGINT,HandleStop);
   QApplication app(argc, argv);
 
