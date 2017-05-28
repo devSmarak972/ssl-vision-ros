@@ -3,7 +3,8 @@
 #include "capture_ros.h"
 #include "image_io.h"
 #include "conversions.h"
-
+#include <ctime>
+#include <cstdio>
 
 
 #ifndef VDATA_NO_QT
@@ -22,8 +23,8 @@ CaptureROS::CaptureROS(VarList * _settings, ros::NodeHandle *nh) : CaptureInterf
   v_colorout->addItem(Colors::colorFormatToString(COLOR_YUV422_UYVY));
     
   //=======================CAPTURE SETTINGS==========================
-  capture_settings->addChild(v_image_topic = new VarString("image topic", "/cv_camera/image_raw"));
-  capture_settings->addChild(v_camerainfo_topic = new VarString("camera info topic", "/cv_camera/camera_info"));
+  capture_settings->addChild(v_image_topic = new VarString("image topic", "/pylon_camera_node/image_raw"));
+  capture_settings->addChild(v_camerainfo_topic = new VarString("camera info topic", "/pylon_camera_node/camera_info"));
 
   is_capturing = false;
   frame = 0;
@@ -60,12 +61,20 @@ void CaptureROS::imageCallback(const sensor_msgs::ImageConstPtr& msg)
 #endif
   try
   {
+    file.open("/home/kgpkubs/Desktop/debug.txt",fstream::out | fstream::app);
+    start = std::clock()/(double) CLOCKS_PER_SEC;
+    
     mat = cv_bridge::toCvCopy(msg, "bgr8")->image;
 #ifndef VDATA_NO_QT
     mutex.unlock();
 #endif
     // cv::imshow("view", cv_bridge::toCvShare(msg, "bgr8")->image);
     // cv::waitKey(30);
+
+    
+    end = std::clock()/(double) CLOCKS_PER_SEC;
+    file<<"diff: "<<end-start<<"\n";
+    file.close();
   }
   catch (cv_bridge::Exception& e)
   {
@@ -113,10 +122,12 @@ RawImage CaptureROS::getFrame()
     height = mat.rows;
     frame = new unsigned char[width*height*3];
     unsigned char* p = &frame[0];
+
     for (int i=0; i < width * height; i++)
     {
       int ii = i/width;
       int jj = i%width;
+
       *p = mat.at<cv::Vec3b>(ii,jj)[2];
       p++;
       *p = mat.at<cv::Vec3b>(ii,jj)[1];
@@ -124,6 +135,7 @@ RawImage CaptureROS::getFrame()
       *p = mat.at<cv::Vec3b>(ii,jj)[0];
       p++;
     }
+
     result.setWidth(width);
     result.setHeight(height);
     result.setData(frame);
@@ -134,6 +146,8 @@ RawImage CaptureROS::getFrame()
 #ifndef VDATA_NO_QT
   mutex.unlock();
 #endif 
+  // file<<"\nsend data:\t"<<std::clock() /(double) CLOCKS_PER_SEC;
+  // file<<"\n\n";
   return result;
 }
 

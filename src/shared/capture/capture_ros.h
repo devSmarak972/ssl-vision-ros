@@ -6,7 +6,9 @@
 #include <string>
 #include <list>
 #include <algorithm>
+#include <fstream>
 #include "VarTypes.h"
+#include <iostream>
 
 #include <ros/ros.h>
 #include <image_transport/image_transport.h>
@@ -20,6 +22,7 @@
   #include <pthread.h>
 #endif
 
+using namespace std;
 
 #ifndef VDATA_NO_QT
   #include <QMutex>
@@ -47,10 +50,15 @@ protected:
   VarString * v_camerainfo_topic;
   VarList * capture_settings;
   VarList * conversion_settings;
+  fstream file;
 
   
   unsigned char* frame;
   bool is_capturing;
+
+  double start;
+  double end;
+
 
   image_transport::ImageTransport * it;
   ros::NodeHandle * nh;
