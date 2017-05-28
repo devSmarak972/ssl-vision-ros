@@ -33,6 +33,12 @@
 #include "capturestats.h"
 #include "affinity_manager.h"
 
+#include <ros/ros.h>
+#include <image_transport/image_transport.h>
+#include <opencv2/highgui/highgui.hpp>
+#include <cv_bridge/cv_bridge.h>
+#include <ros/callback_queue.h>
+
 /*!
   \class   CaptureThread
   \brief   A thread for capturing and processing video data
@@ -51,6 +57,7 @@ protected:
   CaptureInterface * captureFiles;
   CaptureInterface * captureGenerator;
   CaptureInterface * captureROS;
+  ros::NodeHandle * nh;
   AffinityManager * affinity;
   FrameBuffer * rb;
   bool _kill;

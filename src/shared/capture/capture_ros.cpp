@@ -7,9 +7,9 @@
 
 
 #ifndef VDATA_NO_QT
-CaptureROS::CaptureROS(VarList * _settings, QObject * parent) : QObject(parent), CaptureInterface(_settings)
+CaptureROS::CaptureROS(VarList * _settings, ros::NodeHandle *nh, QObject * parent) : QObject(parent), CaptureInterface(_settings), nh(nh)
 #else
-CaptureROS::CaptureROS(VarList * _settings) : CaptureInterface(_settings)
+CaptureROS::CaptureROS(VarList * _settings, ros::NodeHandle *nh) : CaptureInterface(_settings), nh(nh)
 #endif
 {
 
@@ -26,18 +26,12 @@ CaptureROS::CaptureROS(VarList * _settings) : CaptureInterface(_settings)
   capture_settings->addChild(v_camerainfo_topic = new VarString("camera info topic", "/cv_camera/camera_info"));
 
   is_capturing = false;
-  char *argv[] = {"dummy", NULL};
-  int argc = sizeof(argv) / sizeof(char*) - 1;
-  ros::init(argc, argv, "image_listener");
-  nh = new ros::NodeHandle();
-  gotNewFrame = false;
   frame = 0;
-  
+  it = NULL;
 }
 
 CaptureROS::~CaptureROS()
 {
-  delete nh;
 }
 
 bool CaptureROS::stopCapture() 
@@ -61,16 +55,24 @@ void CaptureROS::cleanup()
 
 void CaptureROS::imageCallback(const sensor_msgs::ImageConstPtr& msg)
 {
-  gotNewFrame = true;
+#ifndef VDATA_NO_QT
+  mutex.lock();
+#endif
   try
   {
     mat = cv_bridge::toCvCopy(msg, "bgr8")->image;
+#ifndef VDATA_NO_QT
+    mutex.unlock();
+#endif
     // cv::imshow("view", cv_bridge::toCvShare(msg, "bgr8")->image);
     // cv::waitKey(30);
   }
   catch (cv_bridge::Exception& e)
   {
     ROS_ERROR("Could not convert from '%s' to 'bgr8'.", msg->encoding.c_str());
+#ifndef VDATA_NO_QT
+    mutex.unlock();
+#endif
   }
 }
 
@@ -93,21 +95,20 @@ RawImage CaptureROS::getFrame()
 #ifndef VDATA_NO_QT
    mutex.lock();
 #endif
-  ros::getGlobalCallbackQueue()->callOne(ros::WallDuration(2));
   RawImage result;
   result.setColorFormat(COLOR_RGB8); 
   result.setTime(0.0);
-  int width;
-  int height;
-  if (!gotNewFrame) {
-    fprintf (stderr, "ROS Error, seems like no image published on topic.\n");
-    is_capturing=false;
-    result.setData(0);
-    result.setWidth(640);
-    result.setHeight(480);
-    frame = 0;
+  int width = 640;
+  int height = 480;
+  if (mat.cols == 0 /* no frame */) {
+    // fprintf (stderr, "ROS Error, seems like no image published on topic.\n");
+    // is_capturing=false;
+    // result.setData(0);
+    result.setWidth(width);
+    result.setHeight(height);
+    frame = new unsigned char[width*height*3];
+    result.setData(frame);
   } else {
-    gotNewFrame = false;
     width = mat.cols;
     height = mat.rows;
     frame = new unsigned char[width*height*3];
