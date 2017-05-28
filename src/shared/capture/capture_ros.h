@@ -55,7 +55,6 @@ protected:
   
   unsigned char* frame;
   bool is_capturing;
-  bool gotNewFrame;
 
   double start;
   double end;
@@ -67,10 +66,10 @@ protected:
   cv::Mat mat;
 public:
 #ifndef VDATA_NO_QT
-  CaptureROS(VarList * _settings, QObject * parent=0);
+  CaptureROS(VarList * _settings, ros::NodeHandle *nh, QObject * parent=0);
   void mvc_connect(VarList * group);
 #else
-  CaptureROS(VarList * _settings);
+  CaptureROS(VarList * _settings, ros::NodeHandle *nh);
 #endif
   ~CaptureROS();
     

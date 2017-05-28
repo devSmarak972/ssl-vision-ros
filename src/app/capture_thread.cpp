@@ -57,7 +57,11 @@ CaptureThread::CaptureThread(int cam_id)
   captureDC1394 = new CaptureDC1394v2(dc1394,camId);
   captureFiles = new CaptureFromFile(fromfile);
   captureGenerator = new CaptureGenerator(generator);
-  captureROS = new CaptureROS(ROS);
+  char *argv[] = {"dummy", NULL};
+  int argc = sizeof(argv) / sizeof(char*) - 1;
+  ros::init(argc, argv, "image_listener");
+  nh = new ros::NodeHandle();
+  captureROS = new CaptureROS(ROS, nh);
   selectCaptureMethod();
   _kill =false;
   rb=0;
@@ -82,6 +86,7 @@ CaptureThread::~CaptureThread()
   delete captureDC1394;
   delete captureFiles;
   delete captureROS;
+  delete nh;
   delete captureGenerator;
   delete counter;
 }
@@ -182,6 +187,8 @@ void CaptureThread::run() {
 
     while(true) {
       if (rb!=0) {
+        // spin ros once
+        ros::spinOnce();
         int idx=rb->curWrite();
         FrameData * d=rb->getPointer(idx);
         if ((stats=(CaptureStats *)d->map.get("capture_stats")) == 0) {
