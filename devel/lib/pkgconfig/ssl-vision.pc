@@ -1,0 +1,8 @@
+prefix=/home/krssg/krssg/ssl-vision/devel
+
+Name: ssl-vision
+Description: Description of ssl-vision
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

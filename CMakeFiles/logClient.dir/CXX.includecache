@@ -1,4 +1,4 @@
-#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
 
 #IncludeRegexScan: ^.*$
 
@@ -6,13 +6,13 @@
 
 #IncludeRegexTransform: 
 
-/home/kgpkubs/ssl/src/ssl-vision/src/logClient/CentralWindow.cpp
+/home/krssg/krssg/ssl-vision/src/logClient/CentralWindow.cpp
 CentralWindow.h
-/home/kgpkubs/ssl/src/ssl-vision/src/logClient/CentralWindow.h
+/home/krssg/krssg/ssl-vision/src/logClient/CentralWindow.h
 QtCore/QVariant
 -
 
-/home/kgpkubs/ssl/src/ssl-vision/src/logClient/CentralWindow.h
+/home/krssg/krssg/ssl-vision/src/logClient/CentralWindow.h
 QMainWindow
 -
 QtGui/QGridLayout
@@ -30,13 +30,13 @@ QtGui/QLabel
 QtGui/QLCDNumber
 -
 GraphicsPrimitives.h
-/home/kgpkubs/ssl/src/ssl-vision/src/logClient/GraphicsPrimitives.h
+/home/krssg/krssg/ssl-vision/src/logClient/GraphicsPrimitives.h
 ClientThreading.h
-/home/kgpkubs/ssl/src/ssl-vision/src/logClient/ClientThreading.h
+/home/krssg/krssg/ssl-vision/src/logClient/ClientThreading.h
 
-/home/kgpkubs/ssl/src/ssl-vision/src/logClient/ClientThreading.cpp
+/home/krssg/krssg/ssl-vision/src/logClient/ClientThreading.cpp
 ClientThreading.h
-/home/kgpkubs/ssl/src/ssl-vision/src/logClient/ClientThreading.h
+/home/krssg/krssg/ssl-vision/src/logClient/ClientThreading.h
 iostream
 -
 fstream
@@ -46,7 +46,7 @@ QFileDialog
 QDateTime
 -
 
-/home/kgpkubs/ssl/src/ssl-vision/src/logClient/ClientThreading.h
+/home/krssg/krssg/ssl-vision/src/logClient/ClientThreading.h
 QThread
 -
 QVector
@@ -54,17 +54,17 @@ QVector
 QPointF
 -
 GraphicsPrimitives.h
-/home/kgpkubs/ssl/src/ssl-vision/src/logClient/GraphicsPrimitives.h
+/home/krssg/krssg/ssl-vision/src/logClient/GraphicsPrimitives.h
 robocup_ssl_client.h
-/home/kgpkubs/ssl/src/ssl-vision/src/logClient/robocup_ssl_client.h
+/home/krssg/krssg/ssl-vision/src/logClient/robocup_ssl_client.h
 timer.h
-/home/kgpkubs/ssl/src/ssl-vision/src/logClient/timer.h
+/home/krssg/krssg/ssl-vision/src/logClient/timer.h
 LogControl.h
-/home/kgpkubs/ssl/src/ssl-vision/src/logClient/LogControl.h
+/home/krssg/krssg/ssl-vision/src/logClient/LogControl.h
 
-/home/kgpkubs/ssl/src/ssl-vision/src/logClient/GraphicsPrimitives.cpp
+/home/krssg/krssg/ssl-vision/src/logClient/GraphicsPrimitives.cpp
 GraphicsPrimitives.h
-/home/kgpkubs/ssl/src/ssl-vision/src/logClient/GraphicsPrimitives.h
+/home/krssg/krssg/ssl-vision/src/logClient/GraphicsPrimitives.h
 QGraphicsItem
 -
 QPainter
@@ -76,9 +76,9 @@ QGraphicsView
 QWheelEvent
 -
 math.h
-/home/kgpkubs/ssl/src/ssl-vision/src/logClient/math.h
+/home/krssg/krssg/ssl-vision/src/logClient/math.h
 
-/home/kgpkubs/ssl/src/ssl-vision/src/logClient/GraphicsPrimitives.h
+/home/krssg/krssg/ssl-vision/src/logClient/GraphicsPrimitives.h
 QGraphicsItem
 -
 QGraphicsPathItem
@@ -100,49 +100,41 @@ QMutex
 QtGui/QPushButton
 -
 field_default_constants.h
-/home/kgpkubs/ssl/src/ssl-vision/src/logClient/field_default_constants.h
+/home/krssg/krssg/ssl-vision/src/logClient/field_default_constants.h
 robocup_ssl_client.h
-/home/kgpkubs/ssl/src/ssl-vision/src/logClient/robocup_ssl_client.h
+/home/krssg/krssg/ssl-vision/src/logClient/robocup_ssl_client.h
 timer.h
-/home/kgpkubs/ssl/src/ssl-vision/src/logClient/timer.h
+/home/krssg/krssg/ssl-vision/src/logClient/timer.h
 
-/home/kgpkubs/ssl/src/ssl-vision/src/logClient/LogControl.cpp
-LogControl.h
-/home/kgpkubs/ssl/src/ssl-vision/src/logClient/LogControl.h
-math.h
--
-sstream
--
-
-/home/kgpkubs/ssl/src/ssl-vision/src/logClient/LogControl.h
+/home/krssg/krssg/ssl-vision/src/logClient/LogControl.h
 QObject
 -
 iostream
 -
 
-/home/kgpkubs/ssl/src/ssl-vision/src/logClient/main.cpp
+/home/krssg/krssg/ssl-vision/src/logClient/main.cpp
 stdio.h
 -
 QTime
 -
 CentralWindow.h
-/home/kgpkubs/ssl/src/ssl-vision/src/logClient/CentralWindow.h
+/home/krssg/krssg/ssl-vision/src/logClient/CentralWindow.h
 
-/home/kgpkubs/ssl/src/ssl-vision/src/logClient/moc_CentralWindow.cxx
+/home/krssg/krssg/ssl-vision/src/logClient/moc_CentralWindow.cxx
 CentralWindow.h
-/home/kgpkubs/ssl/src/ssl-vision/src/logClient/CentralWindow.h
+/home/krssg/krssg/ssl-vision/src/logClient/CentralWindow.h
 
-/home/kgpkubs/ssl/src/ssl-vision/src/logClient/moc_ClientThreading.cxx
+/home/krssg/krssg/ssl-vision/src/logClient/moc_ClientThreading.cxx
 ClientThreading.h
-/home/kgpkubs/ssl/src/ssl-vision/src/logClient/ClientThreading.h
+/home/krssg/krssg/ssl-vision/src/logClient/ClientThreading.h
 
-/home/kgpkubs/ssl/src/ssl-vision/src/logClient/moc_GraphicsPrimitives.cxx
+/home/krssg/krssg/ssl-vision/src/logClient/moc_GraphicsPrimitives.cxx
 GraphicsPrimitives.h
-/home/kgpkubs/ssl/src/ssl-vision/src/logClient/GraphicsPrimitives.h
+/home/krssg/krssg/ssl-vision/src/logClient/GraphicsPrimitives.h
 
-/home/kgpkubs/ssl/src/ssl-vision/src/logClient/moc_LogControl.cxx
+/home/krssg/krssg/ssl-vision/src/logClient/moc_LogControl.cxx
 LogControl.h
-/home/kgpkubs/ssl/src/ssl-vision/src/logClient/LogControl.h
+/home/krssg/krssg/ssl-vision/src/logClient/LogControl.h
 
 /usr/include/qt4/Qt3Support/q3cstring.h
 QtCore/qbytearray.h
@@ -285,6 +277,8 @@ QtCore/qatomic_sh.h
 /usr/include/qt4/QtCore/QtCore/qatomic_sh.h
 QtCore/qatomic_sh4a.h
 /usr/include/qt4/QtCore/QtCore/qatomic_sh4a.h
+QtCore/qatomic_i386.h
+/usr/include/qt4/QtCore/QtCore/qatomic_i386.h
 QtCore/qatomic_generic.h
 /usr/include/qt4/QtCore/QtCore/qatomic_generic.h
 QtCore/qatomic_aarch64.h
@@ -494,6 +488,8 @@ QtCore/qconfig.h
 algorithm
 -
 AvailabilityMacros.h
+-
+Availability.h
 -
 utility
 -
@@ -1673,7 +1669,19 @@ string
 -
 google/protobuf/stubs/common.h
 -
+google/protobuf/io/coded_stream.h
+-
+google/protobuf/arena.h
+-
+google/protobuf/arenastring.h
+-
+google/protobuf/generated_message_table_driven.h
+-
 google/protobuf/generated_message_util.h
+-
+google/protobuf/inlined_string_field.h
+-
+google/protobuf/metadata.h
 -
 google/protobuf/message.h
 -
@@ -1689,7 +1697,19 @@ string
 -
 google/protobuf/stubs/common.h
 -
+google/protobuf/io/coded_stream.h
+-
+google/protobuf/arena.h
+-
+google/protobuf/arenastring.h
+-
+google/protobuf/generated_message_table_driven.h
+-
 google/protobuf/generated_message_util.h
+-
+google/protobuf/inlined_string_field.h
+-
+google/protobuf/metadata.h
 -
 google/protobuf/message.h
 -
@@ -1705,7 +1725,19 @@ string
 -
 google/protobuf/stubs/common.h
 -
+google/protobuf/io/coded_stream.h
+-
+google/protobuf/arena.h
+-
+google/protobuf/arenastring.h
+-
+google/protobuf/generated_message_table_driven.h
+-
 google/protobuf/generated_message_util.h
+-
+google/protobuf/inlined_string_field.h
+-
+google/protobuf/metadata.h
 -
 google/protobuf/message.h
 -
@@ -1723,7 +1755,19 @@ string
 -
 google/protobuf/stubs/common.h
 -
+google/protobuf/io/coded_stream.h
+-
+google/protobuf/arena.h
+-
+google/protobuf/arenastring.h
+-
+google/protobuf/generated_message_table_driven.h
+-
 google/protobuf/generated_message_util.h
+-
+google/protobuf/inlined_string_field.h
+-
+google/protobuf/metadata.h
 -
 google/protobuf/message.h
 -

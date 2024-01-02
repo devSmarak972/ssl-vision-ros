@@ -1,11 +1,11 @@
 file(REMOVE_RECURSE
-  "src/graphicalClient/moc_soccerview.cxx"
-  "CMakeFiles/graphicalClient.dir/src/graphicalClient/moc_soccerview.cxx.o"
-  "CMakeFiles/graphicalClient.dir/src/graphicalClient/main.cpp.o"
-  "CMakeFiles/graphicalClient.dir/src/graphicalClient/soccerview.cpp.o"
   "CMakeFiles/graphicalClient.dir/src/graphicalClient/gltext.cpp.o"
-  "bin/graphicalClient.pdb"
-  "bin/graphicalClient"
+  "CMakeFiles/graphicalClient.dir/src/graphicalClient/main.cpp.o"
+  "CMakeFiles/graphicalClient.dir/src/graphicalClient/moc_soccerview.cxx.o"
+  "CMakeFiles/graphicalClient.dir/src/graphicalClient/soccerview.cpp.o"
+  "devel/lib/ssl-vision/graphicalClient"
+  "devel/lib/ssl-vision/graphicalClient.pdb"
+  "src/graphicalClient/moc_soccerview.cxx"
 )
 
 # Per-language clean rules from dependency scanning.

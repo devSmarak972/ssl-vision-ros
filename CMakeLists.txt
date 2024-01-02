@@ -1,7 +1,8 @@
-project(ssl-vision)
 cmake_minimum_required(VERSION 2.6)
+project(ssl-vision)
 
 
+SET(CMAKE_INSTALL_RPATH_USE_LINK_PATH TRUE)
 
 find_package(catkin REQUIRED COMPONENTS
   roscpp
@@ -10,11 +11,10 @@ find_package(catkin REQUIRED COMPONENTS
   image_transport
   cv_bridge
 )
+catkin_package()
 include_directories(
   ${catkin_INCLUDE_DIRS}
 )
-
-catkin_package()
 #defines
 add_definitions(-D UNIX)
 add_definitions(-D LINUX)
@@ -25,7 +25,7 @@ SET(EXECUTABLE_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/bin)
 set (QT_USE_QTNETWORK true)
 set (QT_USE_QTOPENGL true)
 
-find_package ( Qt4  4.8.6 COMPONENTS QtCore QtGui QtXml REQUIRED )
+find_package ( Qt4 COMPONENTS QtCore QtGui QtXml REQUIRED )
 
 include_directories(${PROJECT_BINARY_DIR})
 
@@ -40,6 +40,7 @@ include_directories(${PROJECT_SOURCE_DIR}/src/app/gui)
 include_directories(${PROJECT_SOURCE_DIR}/src/app/plugins)
 include_directories(${PROJECT_SOURCE_DIR}/src/app/stacks)
 message("My Msg+++++++++++++++++++++++++++++++++++++++++++++++++ ${eigen3_INCLUDE_DIRS}")
+message("catkin lib+++++++++++++++++++++++++++++++++++++++++++++++++ ${catkin_LIBRARIES}")
 include_directories(include ${catkin_INCLUDE_DIRS} ${eigen3_INCLUDE_DIRS})
 set (SRCS
 	src/app/capture_thread.cpp
@@ -169,7 +170,7 @@ target_link_libraries(${target} ${libs} ${catkin_LIBRARIES} -lpthread -ldc1394 -
 ##build non graphical client
 set (client client)
 add_executable(${client} src/client/main.cpp )
-target_link_libraries(${client} ${libs} -lpthread -ldc1394 -L/usr/lib/x86_64-linux-gnu/ -lQtCore -I/home/kgpkubs/local/include -L/home/kgpkubs/local/lib -lprotobuf -lpthread -pthread)
+target_link_libraries(${client} ${libs}  ${catkin_LIBRARIES} -lpthread -ldc1394 -L/usr/lib/x86_64-linux-gnu/ -lQtCore -I/home/kgpkubs/local/include -L/home/kgpkubs/local/lib -lprotobuf -lpthread -pthread)
 
 ##build logging client
 set (lclient logClient)
@@ -180,7 +181,7 @@ add_executable(${lclient} ${LCLIENT_MOC_SRCS}
 	src/logClient/GraphicsPrimitives.cpp
 	src/logClient/LogControl.cpp
 )
-target_link_libraries(${lclient} ${libs} -lpthread -ldc1394 -L/usr/lib/x86_64-linux-gnu/ -lQtCore -I/home/kgpkubs/local/include -L/home/kgpkubs/local/lib -lprotobuf -lpthread -pthread)
+target_link_libraries(${lclient} ${libs} ${catkin_LIBRARIES} -lpthread -ldc1394 -L/usr/lib/x86_64-linux-gnu/ -lQtCore -I/home/kgpkubs/local/include -L/home/kgpkubs/local/lib -lprotobuf -lpthread -pthread)
 
 ##build graphical client
 set (gclient graphicalClient)
@@ -189,7 +190,7 @@ add_executable(${gclient} ${GCLIENT_MOC_SRCS}
   src/graphicalClient/soccerview.cpp
   src/graphicalClient/gltext.cpp
 )
-target_link_libraries(${gclient} ${libs} -lpthread -ldc1394 -L/usr/lib/x86_64-linux-gnu/ -lQtCore -I/home/kgpkubs/local/include -L/home/kgpkubs/local/lib -lprotobuf -lpthread -pthread)
+target_link_libraries(${gclient} ${libs} ${catkin_LIBRARIES} -lpthread -ldc1394 -L/usr/lib/x86_64-linux-gnu/ -lQtCore -I/home/kgpkubs/local/include -L/home/kgpkubs/local/lib -lprotobuf -lpthread -pthread)
 
 
 add_executable(test_subscriber src/test_subscriber.cpp)

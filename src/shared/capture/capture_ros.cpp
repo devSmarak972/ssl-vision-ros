@@ -29,6 +29,7 @@ CaptureROS::CaptureROS(VarList * _settings, ros::NodeHandle *nh) : CaptureInterf
   is_capturing = false;
   frame = 0;
   it = NULL;
+  cout<<"capture ros"<<endl;
 }
 
 CaptureROS::~CaptureROS()
@@ -56,12 +57,13 @@ void CaptureROS::cleanup()
 
 void CaptureROS::imageCallback(const sensor_msgs::ImageConstPtr& msg)
 {
+  cout<<"image callback"<<endl;
 #ifndef VDATA_NO_QT
   mutex.lock();
 #endif
   try
   {
-    file.open("/home/kgpkubs/Desktop/debug.txt",fstream::out | fstream::app);
+    file.open("/home/krssg/Desktop/debug.txt",fstream::out | fstream::app);
     start = std::clock()/(double) CLOCKS_PER_SEC;
     
     mat = cv_bridge::toCvCopy(msg, "bgr8")->image;
@@ -90,6 +92,7 @@ bool CaptureROS::startCapture()
 #ifndef VDATA_NO_QT
   mutex.lock();
 #endif
+cout<<"start capture"<<endl;
   it = new image_transport::ImageTransport(*nh);
   sub = it->subscribe(v_image_topic->getString(), 2, &CaptureROS::imageCallback, this);
   is_capturing = true;
@@ -105,6 +108,7 @@ RawImage CaptureROS::getFrame()
    mutex.lock();
 #endif
   RawImage result;
+  cout<<"get frame"<<endl;
   result.setColorFormat(COLOR_RGB8); 
   result.setTime(0.0);
   int width = 640;
@@ -170,6 +174,8 @@ string CaptureROS::getCaptureMethodName() const
 
 bool CaptureROS::copyAndConvertFrame(const RawImage & src, RawImage & target)
 {
+
+  cout<<"copy and convert frame"<<endl;
 #ifndef VDATA_NO_QT
   mutex.lock();
 #endif

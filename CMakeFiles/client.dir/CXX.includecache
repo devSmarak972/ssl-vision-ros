@@ -1,4 +1,4 @@
-#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
 
 #IncludeRegexScan: ^.*$
 
@@ -6,21 +6,21 @@
 
 #IncludeRegexTransform: 
 
-/home/kgpkubs/ssl/src/ssl-vision/src/client/main.cpp
+/home/krssg/krssg/ssl-vision/src/client/main.cpp
 stdio.h
 -
 QThread
 -
 robocup_ssl_client.h
-/home/kgpkubs/ssl/src/ssl-vision/src/client/robocup_ssl_client.h
+/home/krssg/krssg/ssl-vision/src/client/robocup_ssl_client.h
 timer.h
-/home/kgpkubs/ssl/src/ssl-vision/src/client/timer.h
+/home/krssg/krssg/ssl-vision/src/client/timer.h
 messages_robocup_ssl_detection.pb.h
-/home/kgpkubs/ssl/src/ssl-vision/src/client/messages_robocup_ssl_detection.pb.h
+/home/krssg/krssg/ssl-vision/src/client/messages_robocup_ssl_detection.pb.h
 messages_robocup_ssl_geometry.pb.h
-/home/kgpkubs/ssl/src/ssl-vision/src/client/messages_robocup_ssl_geometry.pb.h
+/home/krssg/krssg/ssl-vision/src/client/messages_robocup_ssl_geometry.pb.h
 messages_robocup_ssl_wrapper.pb.h
-/home/kgpkubs/ssl/src/ssl-vision/src/client/messages_robocup_ssl_wrapper.pb.h
+/home/krssg/krssg/ssl-vision/src/client/messages_robocup_ssl_wrapper.pb.h
 
 /usr/include/qt4/Qt3Support/q3cstring.h
 QtCore/qbytearray.h
@@ -97,6 +97,8 @@ QtCore/qatomic_sh.h
 /usr/include/qt4/QtCore/QtCore/qatomic_sh.h
 QtCore/qatomic_sh4a.h
 /usr/include/qt4/QtCore/QtCore/qatomic_sh4a.h
+QtCore/qatomic_i386.h
+/usr/include/qt4/QtCore/QtCore/qatomic_i386.h
 QtCore/qatomic_generic.h
 /usr/include/qt4/QtCore/QtCore/qatomic_generic.h
 QtCore/qatomic_aarch64.h
@@ -239,6 +241,8 @@ algorithm
 -
 AvailabilityMacros.h
 -
+Availability.h
+-
 utility
 -
 e32def.h
@@ -359,7 +363,19 @@ string
 -
 google/protobuf/stubs/common.h
 -
+google/protobuf/io/coded_stream.h
+-
+google/protobuf/arena.h
+-
+google/protobuf/arenastring.h
+-
+google/protobuf/generated_message_table_driven.h
+-
 google/protobuf/generated_message_util.h
+-
+google/protobuf/inlined_string_field.h
+-
+google/protobuf/metadata.h
 -
 google/protobuf/message.h
 -
@@ -375,7 +391,19 @@ string
 -
 google/protobuf/stubs/common.h
 -
+google/protobuf/io/coded_stream.h
+-
+google/protobuf/arena.h
+-
+google/protobuf/arenastring.h
+-
+google/protobuf/generated_message_table_driven.h
+-
 google/protobuf/generated_message_util.h
+-
+google/protobuf/inlined_string_field.h
+-
+google/protobuf/metadata.h
 -
 google/protobuf/message.h
 -
@@ -391,7 +419,19 @@ string
 -
 google/protobuf/stubs/common.h
 -
+google/protobuf/io/coded_stream.h
+-
+google/protobuf/arena.h
+-
+google/protobuf/arenastring.h
+-
+google/protobuf/generated_message_table_driven.h
+-
 google/protobuf/generated_message_util.h
+-
+google/protobuf/inlined_string_field.h
+-
+google/protobuf/metadata.h
 -
 google/protobuf/message.h
 -
@@ -409,7 +449,19 @@ string
 -
 google/protobuf/stubs/common.h
 -
+google/protobuf/io/coded_stream.h
+-
+google/protobuf/arena.h
+-
+google/protobuf/arenastring.h
+-
+google/protobuf/generated_message_table_driven.h
+-
 google/protobuf/generated_message_util.h
+-
+google/protobuf/inlined_string_field.h
+-
+google/protobuf/metadata.h
 -
 google/protobuf/message.h
 -

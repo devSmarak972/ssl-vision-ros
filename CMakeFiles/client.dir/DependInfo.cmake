@@ -4,7 +4,7 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/kgpkubs/ssl/src/ssl-vision/src/client/main.cpp" "/home/kgpkubs/ssl/src/ssl-vision/CMakeFiles/client.dir/src/client/main.cpp.o"
+  "/home/krssg/krssg/ssl-vision/src/client/main.cpp" "/home/krssg/krssg/ssl-vision/CMakeFiles/client.dir/src/client/main.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 
@@ -16,17 +16,17 @@ set(CMAKE_TARGET_DEFINITIONS_CXX
   "QT_NO_DEBUG"
   "QT_OPENGL_LIB"
   "QT_XML_LIB"
+  "ROSCONSOLE_BACKEND_LOG4CXX"
+  "ROS_BUILD_SHARED_LIBS=1"
+  "ROS_PACKAGE_NAME=\"ssl-vision\""
   )
 
 # The include file search paths:
 set(CMAKE_CXX_TARGET_INCLUDE_PATH
+  "/opt/ros/noetic/include"
+  "/opt/ros/noetic/share/xmlrpcpp/cmake/../../../include/xmlrpcpp"
+  "/usr/include/opencv4"
   "."
-  "/usr/include/qt4"
-  "/usr/include/qt4/QtOpenGL"
-  "/usr/include/qt4/QtGui"
-  "/usr/include/qt4/QtXml"
-  "/usr/include/qt4/QtNetwork"
-  "/usr/include/qt4/QtCore"
   "src/shared/capture"
   "src/shared/cmvision"
   "src/shared/cmpattern"
@@ -44,11 +44,17 @@ set(CMAKE_CXX_TARGET_INCLUDE_PATH
   "src/app/plugins"
   "src/app/stacks"
   "include"
+  "/usr/include/qt4"
+  "/usr/include/qt4/QtOpenGL"
+  "/usr/include/qt4/QtGui"
+  "/usr/include/qt4/QtXml"
+  "/usr/include/qt4/QtNetwork"
+  "/usr/include/qt4/QtCore"
   )
 
 # Targets to which this target links.
 set(CMAKE_TARGET_LINKED_INFO_FILES
-  "/home/kgpkubs/ssl/src/ssl-vision/CMakeFiles/sslvision.dir/DependInfo.cmake"
+  "/home/krssg/krssg/ssl-vision/CMakeFiles/sslvision.dir/DependInfo.cmake"
   )
 
 # Fortran module output directory.

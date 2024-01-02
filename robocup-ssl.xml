@@ -199,6 +199,9 @@
 					<Var name="2" type="string">
 						Generator
 					</Var>
+					<Var name="3" type="string">
+						From ROS Topic
+					</Var>
 				</Var>
 			</Var>
 			<Var name="DC1394" type="list">
@@ -761,6 +764,27 @@
 					</Var>
 				</Var>
 			</Var>
+			<Var name="From ROS Topic" type="list">
+				<Var name="Conversion Settings" type="list">
+					<Var name="convert to mode" type="stringenum">
+						yuv422_uyvy
+						<Var name="0" type="string">
+							rgb
+						</Var>
+						<Var name="1" type="string">
+							yuv422_uyvy
+						</Var>
+					</Var>
+				</Var>
+				<Var name="Capture Settings" type="list">
+					<Var name="image topic" type="string">
+						/pylon_camera_node/image_raw
+					</Var>
+					<Var name="camera info topic" type="string">
+						/pylon_camera_node/camera_info
+					</Var>
+				</Var>
+			</Var>
 		</Var>
 		<Var name="DVR Settings" type="list">
 			<Var name="Max Frames" type="int" minval="0" maxval="">
@@ -980,6 +1004,9 @@
 					</Var>
 					<Var name="2" type="string">
 						Generator
+					</Var>
+					<Var name="3" type="string">
+						From ROS Topic
 					</Var>
 				</Var>
 			</Var>
@@ -1543,6 +1570,27 @@
 					</Var>
 				</Var>
 			</Var>
+			<Var name="From ROS Topic" type="list">
+				<Var name="Conversion Settings" type="list">
+					<Var name="convert to mode" type="stringenum">
+						yuv422_uyvy
+						<Var name="0" type="string">
+							rgb
+						</Var>
+						<Var name="1" type="string">
+							yuv422_uyvy
+						</Var>
+					</Var>
+				</Var>
+				<Var name="Capture Settings" type="list">
+					<Var name="image topic" type="string">
+						/pylon_camera_node/image_raw
+					</Var>
+					<Var name="camera info topic" type="string">
+						/pylon_camera_node/camera_info
+					</Var>
+				</Var>
+			</Var>
 		</Var>
 		<Var name="DVR Settings" type="list">
 			<Var name="Max Frames" type="int" minval="0" maxval="">
@@ -1762,6 +1810,9 @@
 					</Var>
 					<Var name="2" type="string">
 						Generator
+					</Var>
+					<Var name="3" type="string">
+						From ROS Topic
 					</Var>
 				</Var>
 			</Var>
@@ -2325,6 +2376,27 @@
 					</Var>
 				</Var>
 			</Var>
+			<Var name="From ROS Topic" type="list">
+				<Var name="Conversion Settings" type="list">
+					<Var name="convert to mode" type="stringenum">
+						yuv422_uyvy
+						<Var name="0" type="string">
+							rgb
+						</Var>
+						<Var name="1" type="string">
+							yuv422_uyvy
+						</Var>
+					</Var>
+				</Var>
+				<Var name="Capture Settings" type="list">
+					<Var name="image topic" type="string">
+						/pylon_camera_node/image_raw
+					</Var>
+					<Var name="camera info topic" type="string">
+						/pylon_camera_node/camera_info
+					</Var>
+				</Var>
+			</Var>
 		</Var>
 		<Var name="DVR Settings" type="list">
 			<Var name="Max Frames" type="int" minval="0" maxval="">
@@ -2544,6 +2616,9 @@
 					</Var>
 					<Var name="2" type="string">
 						Generator
+					</Var>
+					<Var name="3" type="string">
+						From ROS Topic
 					</Var>
 				</Var>
 			</Var>
@@ -3104,6 +3179,27 @@
 					</Var>
 					<Var name="Generate Color Test Image" type="bool">
 						false
+					</Var>
+				</Var>
+			</Var>
+			<Var name="From ROS Topic" type="list">
+				<Var name="Conversion Settings" type="list">
+					<Var name="convert to mode" type="stringenum">
+						yuv422_uyvy
+						<Var name="0" type="string">
+							rgb
+						</Var>
+						<Var name="1" type="string">
+							yuv422_uyvy
+						</Var>
+					</Var>
+				</Var>
+				<Var name="Capture Settings" type="list">
+					<Var name="image topic" type="string">
+						/pylon_camera_node/image_raw
+					</Var>
+					<Var name="camera info topic" type="string">
+						/pylon_camera_node/camera_info
 					</Var>
 				</Var>
 			</Var>

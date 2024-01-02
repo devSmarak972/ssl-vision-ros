@@ -35,11 +35,11 @@ CaptureThread::CaptureThread(int cam_id)
   control->addChild( (VarType*) (c_refresh= new VarTrigger("re-read params","Refresh")));
   control->addChild( (VarType*) (captureModule= new VarStringEnum("Capture Module","DC 1394")));
   captureModule->addFlags(VARTYPE_FLAG_NOLOAD_ENUM_CHILDREN);
-  captureModule->addItem("DC 1394");
+  // captureModule->addItem("DC 1394");
   captureModule->addItem("Read from files");
   captureModule->addItem("Generator");
   captureModule->addItem("From ROS Topic");
-  settings->addChild( (VarType*) (dc1394 = new VarList("DC1394")));
+  // settings->addChild( (VarType*) (dc1394 = new VarList("DC1394")));
   settings->addChild( (VarType*) (fromfile = new VarList("Read from files")));
   settings->addChild( (VarType*) (generator = new VarList("Generator")));
   settings->addChild( (VarType*) (ROS = new VarList("From ROS Topic")));
@@ -54,7 +54,7 @@ CaptureThread::CaptureThread(int cam_id)
   stack = 0;
   counter=new FrameCounter();
   capture=0;
-  captureDC1394 = new CaptureDC1394v2(dc1394,camId);
+  // captureDC1394 = new CaptureDC1394v2(dc1394,camId);
   captureFiles = new CaptureFromFile(fromfile);
   captureGenerator = new CaptureGenerator(generator);
   char *argv[] = {"dummy", NULL};
@@ -83,7 +83,7 @@ VarList * CaptureThread::getSettings() {
 
 CaptureThread::~CaptureThread()
 {
-  delete captureDC1394;
+  // delete captureDC1394;
   delete captureFiles;
   delete captureROS;
   delete nh;
@@ -190,6 +190,7 @@ void CaptureThread::run() {
         // spin ros once
         ros::spinOnce();
         int idx=rb->curWrite();
+        cout<<"in loop"<<idx<<endl;
         FrameData * d=rb->getPointer(idx);
         if ((stats=(CaptureStats *)d->map.get("capture_stats")) == 0) {
           stats=(CaptureStats *)d->map.insert("capture_stats",new CaptureStats());
